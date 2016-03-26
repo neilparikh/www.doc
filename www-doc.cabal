@@ -12,7 +12,7 @@ cabal-version:       >=1.8
 executable www-doc
   main-is:             service.hs
   -- other-modules:       
-  build-depends:       base ==4.8.*
+  build-depends:       base
                      , split
                      , pandoc
                      , scotty
