@@ -13,7 +13,7 @@ import Web.Scotty
 paraToRoute :: String -> Block -> ScottyM ()
 paraToRoute uniq_id (Para els) = let [x, y] = splitOn [Space, Str "->", Space] els
                                  in get (fromString $ uniq_id ++ validatePath x)
-                                        (simplifyBody y |> sequence >>= (map fromString >>> mconcat >>> html))
+                                        (simplifyBody y |> sequence >>= (map fromString >>> (foldr mappend mempty) >>> html))
 paraToRoute _ _ = error "invalid formatting at top level"
 
 validatePath :: [Inline] -> [Char]
