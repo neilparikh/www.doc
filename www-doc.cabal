@@ -10,9 +10,15 @@ build-type:          Simple
 cabal-version:       >=1.8
 
 executable www-doc
-  main-is:             Main.hs
+  main-is:             service.hs
   -- other-modules:       
   build-depends:       base ==4.8.*
                      , split
                      , pandoc
                      , scotty
+                     , data-default
+                     , bytestring
+                     , pandoc-types
+                     , transformers
+                     , random
+                     , wai-extra
