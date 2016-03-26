@@ -9,9 +9,6 @@ import Web.Scotty
 (|>) :: a -> (a -> b) -> b
 (|>) = flip ($)
 
-mconcat xss = [x | xs <- xss, x <- xs]
-
-
 paraToRoute :: String -> Block -> ScottyM ()
 paraToRoute uniq_id (Para els) = let [x, y] = splitOn [Space, Str "->", Space] els
                                  in get (fromString $ uniq_id ++ validatePath x)
